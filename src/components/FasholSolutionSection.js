@@ -11,7 +11,7 @@ const FasholSolutionSection = () => {
     },
     {
       step: 2,
-      title: "Fashol Platform",
+      title: "Krishian Platform",
       icon: "⚡",
       color: "bg-green-500",
       description: "Smart matching & logistics",
@@ -67,7 +67,7 @@ const FasholSolutionSection = () => {
         {/* Main Title */}
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-            Fashol Solution
+            Krishian Solution
           </h2>
         </div>
 
@@ -92,7 +92,7 @@ const FasholSolutionSection = () => {
         <div className="bg-white rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
           <div className="text-center">
             <h3 className="text-2xl font-bold text-gray-800 mb-4">
-              How Fashol Transforms Agriculture
+              How Krishian Transforms Agriculture
             </h3>
             <p className="text-gray-600 leading-relaxed mb-6">
               Our streamlined 3-step process eliminates the traditional 6-step supply chain, 
@@ -111,7 +111,7 @@ const FasholSolutionSection = () => {
               </div>
               
               <div className="text-left">
-                <h4 className="font-semibold text-gray-800 mb-2">Fashol Solution Benefits:</h4>
+                <h4 className="font-semibold text-gray-800 mb-2">Krishian Solution Benefits:</h4>
                 <ul className="text-sm text-gray-600 space-y-1">
                   <li>• Only 3 simple steps</li>
                   <li>• 26% waste reduction</li>
@@ -126,7 +126,7 @@ const FasholSolutionSection = () => {
         {/* CTA Section */}
         <div className="mt-12 text-center">
           <button className="bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-4 rounded-xl transition-colors">
-            Join the Fashol Revolution
+            Join the Krishian Revolution
           </button>
         </div>
       </div>
@@ -136,7 +136,7 @@ const FasholSolutionSection = () => {
 
 export default FasholSolutionSection;
 
-// Timeline component with simple on-scroll animations
+// Timeline component with animated connectors and progress fill
 const Timeline = ({ steps }) => {
   const containerRef = useRef(null);
 
@@ -160,8 +160,16 @@ const Timeline = ({ steps }) => {
 
   return (
     <div ref={containerRef} className="relative max-w-5xl mx-auto mb-16">
-      {/* Center line on md+, left line on mobile */}
-      <div className="absolute left-4 top-0 bottom-0 w-1 bg-green-200 md:left-1/2 md:-translate-x-1/2"></div>
+      <style>{`
+        @keyframes connectorFlow { 0% { background-position: 0 0; } 100% { background-position: 24px 0; } }
+      `}</style>
+      {/* Center line on md+, left line on mobile with animated stripes */}
+      <div className="absolute left-4 top-0 bottom-0 w-1 md:left-1/2 md:-translate-x-1/2">
+        <div className="w-full h-full bg-green-100 relative overflow-hidden rounded">
+          <div className="absolute inset-0 bg-gradient-to-b from-green-300 via-emerald-300 to-green-300 opacity-60" style={{ maskImage: 'linear-gradient(#000,#000)' }}></div>
+          <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,rgba(16,185,129,.5)_0,rgba(16,185,129,.5)_8px,transparent_8px,transparent_16px)] animate-[connectorFlow_1.2s_linear_infinite]"></div>
+        </div>
+      </div>
 
       {steps.map((step, index) => (
         <div key={index} className="relative md:grid md:grid-cols-2 md:gap-12 mb-12">
@@ -174,7 +182,7 @@ const Timeline = ({ steps }) => {
           {/* Content card */}
           <div className={`${index % 2 === 0 ? 'md:col-start-1 md:pr-10' : 'md:col-start-2 md:pl-10'}`}>
             <div className={`timeline-anim ${index % 2 === 0 ? 'slide-in-left' : 'slide-in-right'} bg-white rounded-2xl shadow-lg p-6`}
-                 style={{ animationDelay: `${index * 0.1}s` }}>
+                 style={{ animationDelay: `${index * 0.12}s` }}>
               <div className="flex items-center mb-3">
                 <div className={`w-10 h-10 mr-3 rounded-full flex items-center justify-center text-lg ${step.isActive ? 'bg-green-500 text-white' : 'bg-green-100 text-green-700'}`}>
                   {step.icon}

@@ -29,14 +29,25 @@ const HeroSection = () => {
   return (
     <section 
       id="home" 
-      className="pt-24 min-h-screen flex items-center bg-gradient-to-br from-green-50 via-white to-green-50 relative overflow-hidden"
+      className="pt-24 min-h-[90vh] md:min-h-screen flex items-center relative overflow-hidden"
       ref={heroRef}
+      style={{
+        backgroundImage: `url('https://images.unsplash.com/photo-1684691583342-0dfafc6942cf?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YmFuZ2xhZGVzaCUyMGZhcm1lcnxlbnwwfHwwfHx8MA%3D%3D')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
     >
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      {/* Dark, subtle gradient overlay for readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/10"></div>
+      {/* Soft vignette to frame content */}
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(120%_80%_at_10%_40%,rgba(0,0,0,0.0)_0%,rgba(0,0,0,0.55)_70%)] opacity-70"></div>
+
+      <div className="w-full px-4 sm:px-6 lg:px-12 relative z-10">
+        <div className="grid grid-cols-1 gap-10 items-start">
           {/* Left Content */}
-          <motion.div className="space-y-8"
+          <motion.div className="space-y-8 max-w-6xl bg-white/5 md:bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-10 shadow-[0_10px_40px_rgba(0,0,0,0.25)]"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -44,30 +55,30 @@ const HeroSection = () => {
           >
             <div className="space-y-6">
               <div className="inline-block">
-                <span className="inline-flex items-center bg-krishian-green bg-opacity-10 text-krishian-dark px-6 py-3 rounded-full text-sm font-medium mb-6 group">
-                  <div className="w-3 h-3 bg-krishian-green rounded-full mr-3"></div>
+                <span className="inline-flex items-center bg-white/15 text-white px-6 py-2.5 rounded-full text-xs md:text-sm font-medium mb-6 group backdrop-blur-[2px] ring-1 ring-white/20">
+                  <div className="w-2.5 h-2.5 md:w-3 md:h-3 bg-krishian-green rounded-full mr-3 ring-2 ring-white/40"></div>
                   <span className="group-hover:scale-105 transition-transform duration-300">Revolutionizing Agriculture</span>
                 </span>
               </div>
               
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-white drop-shadow-[0_6px_24px_rgba(0,0,0,0.45)]">
                 <div className="space-y-2">
                   <div className="slide-in-left stagger-1">
-                    <span className="text-krishian-dark">Empowering</span>
-                    <span className="text-gradient-animated ml-4">Farmers.</span>
+                    <span className="text-white">Empowering</span>
+                    <span className="ml-4 bg-gradient-to-r from-krishian-green to-emerald-400 bg-clip-text text-transparent">Farmers.</span>
                   </div>
                   <div className="slide-in-left stagger-2">
-                    <span className="text-krishian-dark">Reducing</span>
-                    <span className="text-gradient-animated ml-4">Waste.</span>
+                    <span className="text-white">Reducing</span>
+                    <span className="ml-4 bg-gradient-to-r from-emerald-400 to-krishian-green bg-clip-text text-transparent">Waste.</span>
                   </div>
                   <div className="slide-in-left stagger-3">
-                    <span className="text-krishian-dark">Building a</span>
-                    <span className="text-gradient-animated ml-4">Better Food Chain.</span>
+                    <span className="text-white">Building a</span>
+                    <span className="ml-4 bg-gradient-to-r from-krishian-green to-emerald-400 bg-clip-text text-transparent">Better Food Chain.</span>
                   </div>
                 </div>
               </h1>
               
-              <p className="text-xl text-gray-600 leading-relaxed max-w-2xl slide-in-left stagger-4 group">
+              <p className="text-base md:text-xl text-gray-100/90 leading-relaxed max-w-4xl slide-in-left stagger-4 group drop-shadow-[0_4px_16px_rgba(0,0,0,0.35)]">
                 We are a tech-enabled agri platform connecting smallholder farmers to high-margin markets through data-driven logistics and real-time pricing ensuring better incomes and less food loss.
                 <span className="block mt-4 text-krishian-green font-semibold group-hover:scale-105 transition-transform duration-300">
                   Join the agricultural revolution today!
@@ -75,9 +86,9 @@ const HeroSection = () => {
               </p>
             </div>
           
-            <div className="flex flex-col sm:flex-row gap-6 slide-in-up stagger-5">
+            <div className="flex flex-col sm:flex-row gap-5 slide-in-up stagger-5">
               <button 
-                className="btn-primary text-lg px-10 py-5 group relative overflow-hidden"
+                className="btn-primary text-lg px-10 py-5 group relative overflow-hidden shadow-[0_12px_24px_rgba(16,185,129,0.35)] hover:shadow-[0_16px_32px_rgba(16,185,129,0.45)] transition-shadow"
                 onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}
               >
                 <span className="relative z-10 group-hover:scale-105 transition-transform duration-300">
@@ -85,68 +96,17 @@ const HeroSection = () => {
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-krishian-green to-krishian-dark opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
-              <button className="btn-secondary text-lg px-10 py-5 group">
-                <span className="relative z-10 group-hover:scale-105 transition-transform duration-300">
+              <button className="btn-secondary text-lg px-10 py-5 group !text-white border border-white/30 hover:bg-white/10 hover:border-white/50 transition-colors">
+                <span className="text-black relative z-10 group-hover:scale-105 transition-transform duration-300 text-white">
                   Learn More
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-krishian-green/5 to-krishian-dark/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
             </div>
           </motion.div>
-          
-          {/* Right Image */}
-          <motion.div className="relative"
-            initial={{ opacity: 0, x: 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            {/* Main Image Container */}
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-              <img 
-                src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                alt="Farmers working in field"
-                className="w-full h-96 lg:h-[500px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-krishian-dark/30 via-transparent to-transparent"></div>
-              
-              {/* Overlay Pattern */}
-              <div className="absolute inset-0 opacity-20">
-                <div className="w-full h-full" style={{
-                  backgroundImage: `radial-gradient(circle at 25% 25%, rgba(140, 198, 63, 0.3) 0%, transparent 50%),
-                                  radial-gradient(circle at 75% 75%, rgba(46, 90, 39, 0.3) 0%, transparent 50%)`
-                }}></div>
-              </div>
-            </div>
-            
-            {/* Floating Stats Cards */}
-            <div className="absolute -bottom-6 -left-6 bg-white/70 backdrop-blur-xl rounded-2xl shadow-xl p-6">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gradient mb-1">25,000+</div>
-                <div className="text-sm text-gray-600 font-medium">Farmers Empowered</div>
-                <div className="w-full h-1 bg-gradient-to-r from-krishian-green to-krishian-dark rounded-full mt-2"></div>
-              </div>
-            </div>
-            
-            <div className="absolute -top-6 -right-6 bg-white/70 backdrop-blur-xl rounded-2xl shadow-xl p-6">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gradient mb-1">10,000+ MT</div>
-                <div className="text-sm text-gray-600 font-medium">Food Waste Reduced</div>
-                <div className="w-full h-1 bg-gradient-to-r from-krishian-green to-krishian-dark rounded-full mt-2"></div>
-              </div>
-            </div>
-          </motion.div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 fade-in">
-          <div className="flex flex-col items-center space-y-2">
-            <span className="text-sm text-gray-500 font-medium">Scroll to explore</span>
-            <div className="w-6 h-10 border-2 border-krishian-green rounded-full flex justify-center">
-              <div className="w-1 h-3 bg-krishian-green rounded-full mt-2 animate-bounce"></div>
-            </div>
-          </div>
-        </div>
+        {/* Removed right image per request; background now shows farming visuals */}
       </div>
     </section>
   );

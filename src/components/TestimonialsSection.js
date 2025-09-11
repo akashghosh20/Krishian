@@ -4,21 +4,21 @@ const TestimonialsSection = () => {
   const testimonials = [
     {
       name: "Rajesh Kumar",
-      role: "Farmer, Punjab",
+      role: "Farmer, Satkhira",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
       content: "Krishian has transformed my farming business. I now get better prices for my crops and have direct access to buyers. My income has increased by 40% since joining the platform.",
       rating: 5
     },
     {
-      name: "Priya Sharma",
-      role: "Buyer, Delhi",
+      name: "Rahul ",
+      role: "Buyer, Khulna",
       image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
       content: "The quality of produce I get through Krishian is exceptional. The logistics are smooth and I can track my orders in real-time. It's a game-changer for my business.",
       rating: 5
     },
     {
-      name: "Amit Patel",
-      role: "Farmer, Gujarat",
+      name: "Amit ",
+      role: "Farmer, Mymensingh",
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
       content: "The mobile app is so easy to use. I can check market prices, connect with buyers, and manage my inventory all from my phone. It has made farming much more efficient.",
       rating: 5

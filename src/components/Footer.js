@@ -11,9 +11,10 @@ const Footer = () => {
               <img 
                 src="/assets/logo.png" 
                 alt="Krishian Logo" 
-                className="h-12 w-auto"
+                className="h-20 w-auto"
               />
-              <span className="text-3xl font-bold">Krishian</span>
+              {/* <br></br> */}
+              {/* <span className="text-3xl font-bold text-white">Krishian</span> */}
             </div>
             <p className="text-gray-300 text-lg leading-relaxed mb-6 max-w-md">
               Empowering Farmers. Reducing Waste. Building a Better Food Chain.
@@ -94,8 +95,8 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-6">Contact</h3>
             <ul className="space-y-3">
               <li className="text-gray-300">hello@krishian.com</li>
-              <li className="text-gray-300">+1 (555) 123-4567</li>
-              <li className="text-gray-300">123 Farm Street, Agriculture City, AC 12345</li>
+              <li className="text-gray-300">+880 1234-567890</li>
+              <li className="text-gray-300">House 12, Road 4, Dhanmondi, Dhaka 1209, Bangladesh</li>
             </ul>
           </div>
         </div>

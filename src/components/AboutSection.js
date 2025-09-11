@@ -24,27 +24,27 @@ const AboutSection = () => {
   }, []);
   const teamMembers = [
     {
-      name: "Sarah Johnson",
+      name: "Ayesha Rahman",
       role: "CEO & Founder",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-      description: "Passionate about sustainable agriculture and farmer empowerment."
+      image: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=600&auto=format&fit=crop",
+      description: "Passionate about sustainable agriculture and farmer empowerment in Bangladesh."
     },
     {
-      name: "Michael Chen",
+      name: "Tanvir Hasan",
       role: "CTO",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      image: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=600&auto=format&fit=crop",
       description: "Tech innovator building the future of agricultural technology."
     },
     {
-      name: "Emily Rodriguez",
+      name: "Nusrat Jahan",
       role: "Head of Operations",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop",
       description: "Operations expert ensuring smooth supply chain management."
     },
     {
-      name: "David Kim",
+      name: "Mehedi Ahmed",
       role: "Lead Developer",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+      image: "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=600&auto=format&fit=crop",
       description: "Full-stack developer creating innovative solutions for farmers."
     }
   ];

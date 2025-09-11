@@ -3,8 +3,8 @@ import React from 'react';
 const CaseStudiesSection = () => {
   const caseStudies = [
     {
-      title: "Punjab Farmers Cooperative",
-      location: "Punjab, India",
+      title: "Khulna Farmers Cooperative",
+      location: "Khulna, Bangladesh",
       image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       challenge: "Farmers were getting low prices due to middlemen",
       solution: "Connected 500+ farmers directly with buyers",
@@ -15,8 +15,8 @@ const CaseStudiesSection = () => {
       ]
     },
     {
-      title: "Gujarat Vegetable Growers",
-      location: "Gujarat, India",
+      title: "Satkhira Vegetable Growers",
+      location: "Satkhira, Bangladesh",
       image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       challenge: "Poor logistics leading to high spoilage rates",
       solution: "Implemented smart logistics and cold chain management",
@@ -27,8 +27,8 @@ const CaseStudiesSection = () => {
       ]
     },
     {
-      title: "Karnataka Spice Farmers",
-      location: "Karnataka, India",
+      title: "Tala Spice Farmers",
+      location: "Tala, Bangladesh",
       image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1184&q=80",
       challenge: "Limited market access for specialty crops",
       solution: "Connected with premium buyers and export markets",
