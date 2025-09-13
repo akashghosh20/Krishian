@@ -1,208 +1,280 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 
 const FasholSolutionSection = () => {
-  const solutionSteps = [
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  const solutionFeatures = [
     {
-      step: 1,
-      title: "Farmer",
-      icon: "👥",
-      color: "bg-green-100",
-      description: "Direct connection to platform"
+      id: 1,
+      title: "Direct Farmer Connection",
+      icon: "🌾",
+      description: "Farmers connect directly to our platform",
+      color: "from-emerald-500 to-emerald-600",
+      bgColor: "bg-white/10",
+      borderColor: "border-emerald-500/30",
+      textColor: "text-white",
+      stats: "100% Direct",
+      benefits: ["No middlemen", "Fair pricing", "Real-time updates"]
     },
     {
-      step: 2,
-      title: "Krishian Platform",
-      icon: "⚡",
-      color: "bg-green-500",
-      description: "Smart matching & logistics",
-      isActive: true,
-      activeText: "Fashol: 67% Active"
+      id: 2,
+      title: "AI-Powered Matching",
+      icon: "🤖",
+      description: "Smart algorithms match farmers with buyers",
+      color: "from-emerald-500 to-emerald-600",
+      bgColor: "bg-white/10",
+      borderColor: "border-emerald-500/30",
+      textColor: "text-white",
+      stats: "95% Accuracy",
+      benefits: ["Instant matching", "Price optimization", "Demand forecasting"]
     },
     {
-      step: 3,
-      title: "Buyers",
-      icon: "🎯",
-      color: "bg-gray-100",
-      description: "Direct market access"
+      id: 3,
+      title: "Seamless Logistics",
+      icon: "🚚",
+      description: "End-to-end supply chain management",
+      color: "from-emerald-500 to-emerald-600",
+      bgColor: "bg-white/10",
+      borderColor: "border-emerald-500/30",
+      textColor: "text-white",
+      stats: "24h Delivery",
+      benefits: ["Cold chain", "Quality control", "Tracking system"]
     }
   ];
 
-  const benefits = [
+  const impactMetrics = [
     {
-      metric: "26%",
-      description: "Waste Reduction"
+      metric: "67%",
+      label: "Active Platform",
+      description: "Farmers actively using",
+      color: "from-emerald-500 to-emerald-600",
+      icon: "📈"
     },
     {
-      metric: "30%",
-      description: "Less Millage Used"
+      metric: "26%",
+      label: "Waste Reduction",
+      description: "Less food waste",
+      color: "from-emerald-500 to-emerald-600",
+      icon: "♻️"
     },
     {
       metric: "80%",
-      description: "Middleman Removed"
+      label: "Middlemen Removed",
+      description: "Direct connections",
+      color: "from-emerald-500 to-emerald-600",
+      icon: "✂️"
+    },
+    {
+      metric: "40%",
+      label: "Profit Increase",
+      description: "Higher farmer income",
+      color: "from-emerald-500 to-emerald-600",
+      icon: "💰"
     }
   ];
 
   return (
-    <section className="py-20 bg-pink-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* VS Comparison Header */}
-        <div className="flex items-center justify-center mb-12">
-          <div className="w-16 h-1 bg-red-500"></div>
-          <div className="w-12 h-12 bg-gray-400 rounded-full flex items-center justify-center mx-4">
-            <span className="text-white font-bold text-lg">VS</span>
-          </div>
-          <div className="w-16 h-1 bg-green-500"></div>
+    <section ref={sectionRef} className="py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 via-transparent to-emerald-500/5"></div>
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
+                          radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 50%)`
+        }}></div>
+        
+        {/* Floating Elements */}
+        <div className="absolute top-20 left-10 w-16 h-16 bg-emerald-500/10 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-20 h-20 bg-emerald-500/10 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-20 left-1/4 w-16 h-16 bg-emerald-500/10 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
         </div>
 
-        {/* Success Badge */}
-        <div className="flex justify-end mb-8">
-          <div className="bg-green-500 text-white px-6 py-3 rounded-full flex items-center">
-            <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
-            <span className="font-semibold">3 Steps • 26% waste reduction • 20%-40% profit</span>
-          </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header Section */}
+        <motion.div 
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="inline-flex items-center bg-gradient-to-r from-emerald-500/20 to-emerald-500/20 px-8 py-4 rounded-full border border-emerald-500/30 mb-8">
+            <div className="w-3 h-3 bg-emerald-400 rounded-full mr-3 animate-pulse"></div>
+            <span className="text-emerald-300 font-semibold text-sm">Krishian Solution</span>
         </div>
 
-        {/* Main Title */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-            Krishian Solution
+          <h2 className="text-6xl md:text-7xl font-bold mb-8">
+            <span className="text-white">
+              The Future of
+            </span>
+            <br />
+            <span className="bg-gradient-to-r from-emerald-300 to-emerald-400 bg-clip-text text-transparent">
+              Agriculture
+            </span>
           </h2>
+          
+          <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            Experience the revolutionary 3-step process that transforms traditional agriculture 
+            into a modern, efficient, and profitable ecosystem for everyone.
+          </p>
+        </motion.div>
+
+        {/* Solution Features */}
+        <div className="mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {solutionFeatures.map((feature, index) => (
+              <motion.div
+                key={feature.id}
+                className="relative group"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+              >
+                {/* Connection Lines */}
+                {index < solutionFeatures.length - 1 && (
+                  <div className="hidden lg:block absolute top-1/2 left-full w-full h-0.5 bg-gradient-to-r from-emerald-400 to-emerald-500 transform -translate-y-1/2 translate-x-4 z-0">
+                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-emerald-500 animate-pulse"></div>
+                  </div>
+                )}
+
+                {/* Feature Card */}
+                <div className={`relative z-10 ${feature.bgColor} ${feature.borderColor} border-2 rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 hover:scale-105 group-hover:border-opacity-50`}>
+                  {/* Step Number */}
+                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r ${feature.color} text-white font-bold text-2xl mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                    {feature.id}
         </div>
 
-        {/* Vertical Timeline */}
-        <Timeline steps={solutionSteps} />
+                  {/* Icon */}
+                  <div className="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">{feature.icon}</div>
 
-        {/* Benefits Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          {benefits.map((benefit, index) => (
-            <div key={index} className="text-center">
-              <div className="text-4xl font-bold text-gray-800 mb-2">
-                {benefit.metric}
+                  {/* Content */}
+                  <h3 className={`text-2xl font-bold ${feature.textColor} mb-4 group-hover:text-opacity-80 transition-colors duration-300`}>
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-300 mb-6 text-lg">{feature.description}</p>
+
+                  {/* Stats */}
+                  <div className={`inline-block bg-gradient-to-r ${feature.color} text-white px-6 py-3 rounded-full text-lg font-bold mb-6 group-hover:scale-105 transition-transform duration-300`}>
+                    {feature.stats}
+                  </div>
+
+                  {/* Benefits */}
+                  <div className="space-y-2">
+                    {feature.benefits.map((benefit, benefitIndex) => (
+                      <div key={benefitIndex} className="flex items-center text-sm text-gray-300">
+                        <div className={`w-2 h-2 bg-gradient-to-r ${feature.color} rounded-full mr-3`}></div>
+                        {benefit}
               </div>
-              <div className="text-lg font-semibold text-gray-600">
-                {benefit.description}
+                    ))}
               </div>
             </div>
+              </motion.div>
           ))}
-        </div>
-
-        {/* Solution Description */}
-        <div className="bg-white rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">
-              How Krishian Transforms Agriculture
-            </h3>
-            <p className="text-gray-600 leading-relaxed mb-6">
-              Our streamlined 3-step process eliminates the traditional 6-step supply chain, 
-              reducing waste by 26% and increasing farmer profits by 20-40% while removing 80% of middlemen.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="text-left">
-                <h4 className="font-semibold text-gray-800 mb-2">Traditional System Problems:</h4>
-                <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• 6 complex steps</li>
-                  <li>• 30% wastage</li>
-                  <li>• 30-60% price hikes</li>
-                  <li>• Multiple middlemen</li>
-                </ul>
-              </div>
-              
-              <div className="text-left">
-                <h4 className="font-semibold text-gray-800 mb-2">Krishian Solution Benefits:</h4>
-                <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• Only 3 simple steps</li>
-                  <li>• 26% waste reduction</li>
-                  <li>• 20-40% profit increase</li>
-                  <li>• 80% fewer middlemen</li>
-                </ul>
-              </div>
-            </div>
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="mt-12 text-center">
-          <button className="bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-4 rounded-xl transition-colors">
-            Join the Krishian Revolution
-          </button>
-        </div>
+        {/* Impact Metrics */}
+        <motion.div 
+          className="mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="text-center mb-12">
+            <h3 className="text-4xl font-bold text-white mb-4">
+              Measurable Impact
+            </h3>
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+              Real results from our innovative platform
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {impactMetrics.map((metric, index) => (
+              <motion.div
+                key={index}
+                className="text-center group"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <div className={`w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-r ${metric.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                  <span className="text-4xl">{metric.icon}</span>
+                </div>
+                <div className="text-5xl font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors duration-300">
+                  {metric.metric}
+                </div>
+                <div className="text-xl font-semibold text-gray-300 mb-2">
+                  {metric.label}
+                </div>
+                <div className="text-sm text-gray-400">
+                  {metric.description}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Call to Action */}
+        <motion.div 
+          className="text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-3xl p-12 relative overflow-hidden">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-20">
+              <div className="w-full h-full" style={{
+                backgroundImage: `radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3) 0%, transparent 50%),
+                                radial-gradient(circle at 70% 70%, rgba(255,255,255,0.3) 0%, transparent 50%)`
+              }}></div>
+            </div>
+            
+            <div className="relative z-10">
+              <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                Ready to Transform Agriculture?
+              </h3>
+              <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+                Join thousands of farmers and buyers who are already experiencing the future of agriculture with Krishian.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <button className="bg-white text-emerald-600 font-bold px-10 py-4 rounded-full text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-xl">
+                  Start as Farmer
+                </button>
+                <button className="border-2 border-white text-white font-bold px-10 py-4 rounded-full text-lg hover:bg-white hover:text-emerald-600 transition-all duration-300 transform hover:scale-105">
+                  Join as Buyer
+                </button>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
 };
 
 export default FasholSolutionSection;
-
-// Timeline component with animated connectors and progress fill
-const Timeline = ({ steps }) => {
-  const containerRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const items = containerRef.current?.querySelectorAll('.timeline-anim');
-    items?.forEach((el) => observer.observe(el));
-
-    return () => items?.forEach((el) => observer.unobserve(el));
-  }, []);
-
-  return (
-    <div ref={containerRef} className="relative max-w-5xl mx-auto mb-16">
-      <style>{`
-        @keyframes connectorFlow { 0% { background-position: 0 0; } 100% { background-position: 24px 0; } }
-      `}</style>
-      {/* Center line on md+, left line on mobile with animated stripes */}
-      <div className="absolute left-4 top-0 bottom-0 w-1 md:left-1/2 md:-translate-x-1/2">
-        <div className="w-full h-full bg-green-100 relative overflow-hidden rounded">
-          <div className="absolute inset-0 bg-gradient-to-b from-green-300 via-emerald-300 to-green-300 opacity-60" style={{ maskImage: 'linear-gradient(#000,#000)' }}></div>
-          <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,rgba(16,185,129,.5)_0,rgba(16,185,129,.5)_8px,transparent_8px,transparent_16px)] animate-[connectorFlow_1.2s_linear_infinite]"></div>
-        </div>
-      </div>
-
-      {steps.map((step, index) => (
-        <div key={index} className="relative md:grid md:grid-cols-2 md:gap-12 mb-12">
-          {/* Mobile dot on left line */}
-          <div className="absolute left-[6px] md:hidden top-6 w-3 h-3 bg-green-500 rounded-full ring-4 ring-green-100"></div>
-
-          {/* Center dot on md+ */}
-          <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-6 w-4 h-4 bg-green-500 rounded-full ring-8 ring-green-100"></div>
-
-          {/* Content card */}
-          <div className={`${index % 2 === 0 ? 'md:col-start-1 md:pr-10' : 'md:col-start-2 md:pl-10'}`}>
-            <div className={`timeline-anim ${index % 2 === 0 ? 'slide-in-left' : 'slide-in-right'} bg-white rounded-2xl shadow-lg p-6`}
-                 style={{ animationDelay: `${index * 0.12}s` }}>
-              <div className="flex items-center mb-3">
-                <div className={`w-10 h-10 mr-3 rounded-full flex items-center justify-center text-lg ${step.isActive ? 'bg-green-500 text-white' : 'bg-green-100 text-green-700'}`}>
-                  {step.icon}
-                </div>
-                <div className="text-sm font-semibold text-green-700">Step {step.step}</div>
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-1">{step.title}</h3>
-              <p className="text-gray-600">{step.description}</p>
-              {step.isActive && step.activeText && (
-                <div className="mt-4 inline-block bg-green-500 text-white px-3 py-1 rounded-full text-xs font-medium">
-                  {step.activeText}
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Spacer on the opposite side to balance grid */}
-          <div className={`${index % 2 === 0 ? 'md:col-start-2' : 'md:col-start-1'} hidden md:block`}></div>
-        </div>
-      ))}
-    </div>
-  );
-};

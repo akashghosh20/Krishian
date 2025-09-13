@@ -4,9 +4,8 @@ import { motion } from 'framer-motion';
 const HeroSection = () => {
   const heroRef = useRef(null);
   
-
   useEffect(() => {
-    // Intersection Observer for simple fade/slide animations
+    // Intersection Observer for animations
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -29,84 +28,149 @@ const HeroSection = () => {
   return (
     <section 
       id="home" 
-      className="pt-24 min-h-[90vh] md:min-h-screen flex items-center relative overflow-hidden"
+      className="pt-20 sm:pt-24 min-h-screen flex items-center relative overflow-hidden"
       ref={heroRef}
       style={{
-        backgroundImage: `url('https://images.unsplash.com/photo-1684691583342-0dfafc6942cf?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YmFuZ2xhZGVzaCUyMGZhcm1lcnxlbnwwfHwwfHx8MA%3D%3D')`,
+        backgroundImage: `url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       }}
     >
+      {/* Dark gradient overlay for better readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/30"></div>
+      
+      {/* Subtle pattern overlay */}
+      <div className="absolute inset-0 opacity-5" style={{
+        backgroundImage: `radial-gradient(circle at 20% 20%, rgba(11, 110, 79, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(246, 165, 0, 0.1) 0%, transparent 50%)`
+      }}></div>
 
-      {/* Dark, subtle gradient overlay for readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/10"></div>
-      {/* Soft vignette to frame content */}
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(120%_80%_at_10%_40%,rgba(0,0,0,0.0)_0%,rgba(0,0,0,0.55)_70%)] opacity-70"></div>
-
-      <div className="w-full px-4 sm:px-6 lg:px-12 relative z-10">
-        <div className="grid grid-cols-1 gap-10 items-start">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
-          <motion.div className="space-y-8 max-w-6xl bg-white/5 md:bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-10 shadow-[0_10px_40px_rgba(0,0,0,0.25)]"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
+          <motion.div 
+            className="space-y-6 sm:space-y-8"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="space-y-6">
-              <div className="inline-block">
-                <span className="inline-flex items-center bg-white/15 text-white px-6 py-2.5 rounded-full text-xs md:text-sm font-medium mb-6 group backdrop-blur-[2px] ring-1 ring-white/20">
-                  <div className="w-2.5 h-2.5 md:w-3 md:h-3 bg-krishian-green rounded-full mr-3 ring-2 ring-white/40"></div>
-                  <span className="group-hover:scale-105 transition-transform duration-300">Revolutionizing Agriculture</span>
-                </span>
-              </div>
-              
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-white drop-shadow-[0_6px_24px_rgba(0,0,0,0.45)]">
-                <div className="space-y-2">
-                  <div className="slide-in-left stagger-1">
-                    <span className="text-white">Empowering</span>
-                    <span className="ml-4 bg-gradient-to-r from-krishian-green to-emerald-400 bg-clip-text text-transparent">Farmers.</span>
+            {/* Badge */}
+            <motion.div 
+              className="inline-block"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <span className="inline-flex items-center bg-krishian-green/30 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-pill text-xs sm:text-sm font-medium backdrop-blur-sm border border-krishian-green/50">
+                <div className="w-2 h-2 bg-krishian-green rounded-full mr-2 sm:mr-3 animate-pulse"></div>
+                <span className="text-center">Revolutionizing Agriculture in Bangladesh</span>
+              </span>
+            </motion.div>
+            
+            {/* Main Headline */}
+            <motion.h1 
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-white"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <span className="block">Fair Price for</span>
+              <span className="block bg-gradient-to-r from-krishian-green to-krishian-accent bg-clip-text text-transparent">
+                Farmers.
+              </span>
+              <span className="block">Fresh Food for</span>
+              <span className="block bg-gradient-to-r from-krishian-accent to-krishian-green bg-clip-text text-transparent">
+                All.
+              </span>
+            </motion.h1>
+            
+            {/* Subheadline */}
+            <motion.p 
+              className="text-base sm:text-lg lg:text-xl text-gray-200 leading-relaxed max-w-2xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              Krishian connects farmers directly with retailers and wholesalers through technology-driven auctions and direct sales — ensuring transparency, stability, and dignity in agriculture.
+            </motion.p>
+            
+            {/* CTA Buttons */}
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
+              <button className="btn-primary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 group w-full sm:w-auto">
+                <span className="relative z-10">Join as Farmer</span>
+              </button>
+              <button className="btn-outline text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 group text-white border-white/50 hover:bg-white hover:text-krishian-dark w-full sm:w-auto">
+                <span className="relative z-10">Join as Buyer</span>
+              </button>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Visual */}
+          <motion.div 
+            className="relative mt-8 lg:mt-0"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            {/* Farm-to-Market Flow Illustration */}
+            <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 lg:p-8 border border-white/20">
+            <div className="space-y-4 sm:space-y-6">
+                {/* Farmer */}
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-krishian-green rounded-full flex items-center justify-center">
+                    <span className="text-white text-lg sm:text-xl">🌾</span>
                   </div>
-                  <div className="slide-in-left stagger-2">
-                    <span className="text-white">Reducing</span>
-                    <span className="ml-4 bg-gradient-to-r from-emerald-400 to-krishian-green bg-clip-text text-transparent">Waste.</span>
-                  </div>
-                  <div className="slide-in-left stagger-3">
-                    <span className="text-white">Building a</span>
-                    <span className="ml-4 bg-gradient-to-r from-krishian-green to-emerald-400 bg-clip-text text-transparent">Better Food Chain.</span>
+                  <div>
+                    <h3 className="text-white font-semibold text-sm sm:text-base">Farmer</h3>
+                    <p className="text-gray-300 text-xs sm:text-sm">Sells crops directly</p>
                   </div>
                 </div>
-              </h1>
+                
+                {/* Arrow */}
+                <div className="flex justify-center">
+                  <div className="w-8 h-0.5 bg-gradient-to-r from-krishian-green to-krishian-accent"></div>
+              </div>
               
-              <p className="text-base md:text-xl text-gray-100/90 leading-relaxed max-w-4xl slide-in-left stagger-4 group drop-shadow-[0_4px_16px_rgba(0,0,0,0.35)]">
-                We are a tech-enabled agri platform connecting smallholder farmers to high-margin markets through data-driven logistics and real-time pricing ensuring better incomes and less food loss.
-                <span className="block mt-4 text-krishian-green font-semibold group-hover:scale-105 transition-transform duration-300">
-                  Join the agricultural revolution today!
-                </span>
-              </p>
-            </div>
-          
-            <div className="flex flex-col sm:flex-row gap-5 slide-in-up stagger-5">
-              <button 
-                className="btn-primary text-lg px-10 py-5 group relative overflow-hidden shadow-[0_12px_24px_rgba(16,185,129,0.35)] hover:shadow-[0_16px_32px_rgba(16,185,129,0.45)] transition-shadow"
-                onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}
-              >
-                <span className="relative z-10 group-hover:scale-105 transition-transform duration-300">
-                  Join the Movement
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-krishian-green to-krishian-dark opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </button>
-              <button className="btn-secondary text-lg px-10 py-5 group !text-white border border-white/30 hover:bg-white/10 hover:border-white/50 transition-colors">
-                <span className="text-black relative z-10 group-hover:scale-105 transition-transform duration-300 text-white">
-                  Learn More
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-krishian-green/5 to-krishian-dark/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </button>
+                {/* Krishian Platform */}
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-krishian-accent rounded-full flex items-center justify-center">
+                    <span className="text-white text-lg sm:text-xl">📱</span>
+                  </div>
+                  <div>
+                    <h3 className="text-white font-semibold text-sm sm:text-base">Krishian Platform</h3>
+                    <p className="text-gray-300 text-xs sm:text-sm">Technology-driven auctions</p>
+                  </div>
+                </div>
+                
+                {/* Arrow */}
+                <div className="flex justify-center">
+                  <div className="w-8 h-0.5 bg-gradient-to-r from-krishian-accent to-krishian-green"></div>
+                </div>
+                
+                {/* Buyer */}
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-krishian-green rounded-full flex items-center justify-center">
+                    <span className="text-white text-lg sm:text-xl">🏪</span>
+                  </div>
+                  <div>
+                    <h3 className="text-white font-semibold text-sm sm:text-base">Buyer</h3>
+                    <p className="text-gray-300 text-xs sm:text-sm">Gets fresh produce</p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Floating elements */}
+              <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-6 h-6 sm:w-8 sm:h-8 bg-krishian-accent/20 rounded-full animate-float"></div>
+              <div className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 w-4 h-4 sm:w-6 sm:h-6 bg-krishian-green/20 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
             </div>
           </motion.div>
         </div>
-
-        {/* Removed right image per request; background now shows farming visuals */}
       </div>
     </section>
   );

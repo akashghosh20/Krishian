@@ -129,7 +129,7 @@ const ServicesPage = () => {
 
 			<ServicesSection />
 			<HowItWorksSection />
-			<PricingSection />
+			{/* <PricingSection /> */}
 			<Footer />
 		</div>
 	);
