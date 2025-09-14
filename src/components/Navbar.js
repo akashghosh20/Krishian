@@ -18,17 +18,18 @@ const Navbar = () => {
 		return () => window.removeEventListener('scroll', onScroll);
 	}, [controls]);
 
-	const navBgImage = "https://images.unsplash.com/photo-1684691583342-0dfafc6942cf?w=1600&auto=format&fit=crop&q=75&ixlib=rb-4.1.0";
+	const navBgImage = "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1600&auto=format&fit=crop&q=80&ixlib=rb-4.1.0";
 	return (
 		<motion.nav 
 			animate={controls} 
 			className={`fixed top-0 left-0 right-0 z-50 shadow-md transition-colors duration-300 ${scrolled ? 'border-b border-white/20' : 'border-b border-[#d7ccd1]/60'}`}
 			style={{
-				backgroundColor: scrolled ? 'white' : 'white',
-				backgroundImage: scrolled ? `linear-gradient(to right, rgba(0,0,0,0.55), rgba(0,0,0,0.25)), url('${navBgImage}')` : 'none',
+				backgroundColor: scrolled ? 'rgba(255,255,255,0.95)' : 'rgba(255,255,255,0.9)',
+				backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('${navBgImage}')`,
 				backgroundSize: 'cover',
 				backgroundPosition: 'top center',
-				backgroundRepeat: 'no-repeat'
+				backgroundRepeat: 'no-repeat',
+				backdropFilter: 'blur(10px)'
 			}}
 		>
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

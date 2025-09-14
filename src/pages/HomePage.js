@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import HeroSection from '../components/HeroSection';
+import ImageSlider from '../components/ImageSlider';
 import CrisisAlertSection from '../components/CrisisAlertSection';
 import UNSDGSection from '../components/UNSDGSection';
 import ProblemCardsSection from '../components/ProblemCardsSection';
@@ -21,7 +22,7 @@ const HomePage = () => {
 	return (
 		<div className="App">
 			<Navbar />
-			<HeroSection />
+			<ImageSlider />
 			<CrisisAlertSection />
 			<UNSDGSection />
 			<ProblemCardsSection />

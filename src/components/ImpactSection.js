@@ -304,28 +304,10 @@ const ImpactSection = () => {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="bg-gradient-to-br from-krishian-green/10 via-white to-krishian-accent/10 rounded-3xl p-16 text-krishian-dark relative overflow-hidden border-2 border-krishian-green/20">
-            {/* Animated Ripple Background */}
+          <div className="bg-white rounded-3xl p-16 text-krishian-dark relative overflow-hidden border-2 border-krishian-green/20">
+            {/* Simple Background */}
             <div className="absolute inset-0">
-              <div className="absolute inset-0 bg-gradient-to-r from-krishian-green/10 via-krishian-accent/10 to-krishian-green/10"></div>
-              <div className="absolute inset-0" style={{
-                backgroundImage: `radial-gradient(circle at 30% 30%, rgba(11, 110, 79, 0.1) 0%, transparent 50%),
-                                radial-gradient(circle at 70% 70%, rgba(246, 165, 0, 0.1) 0%, transparent 50%)`
-              }}></div>
-              
-              {/* Animated Ripple Circles */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                <div className="w-96 h-96 border border-krishian-green/30 rounded-full animate-ping"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 border border-krishian-accent/30 rounded-full animate-ping" style={{ animationDelay: '0.5s' }}></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-krishian-green/30 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 border border-krishian-accent/30 rounded-full animate-ping" style={{ animationDelay: '1.5s' }}></div>
-              </div>
-              
-              {/* Floating Impact Icons */}
-              <div className="absolute top-20 left-20 text-4xl animate-bounce">🌾</div>
-              <div className="absolute top-32 right-32 text-3xl animate-bounce" style={{ animationDelay: '0.5s' }}>💰</div>
-              <div className="absolute bottom-32 left-1/4 text-4xl animate-bounce" style={{ animationDelay: '1s' }}>🏪</div>
-              <div className="absolute bottom-20 right-20 text-3xl animate-bounce" style={{ animationDelay: '1.5s' }}>🌱</div>
+              <div className="absolute inset-0 bg-krishian-green/5"></div>
             </div>
             
             <div className="relative z-10">

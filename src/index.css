@@ -61,7 +61,7 @@ body {
   line-height: 1.6;
   color: var(--color-dark);
   overflow-x: hidden;
-  background: linear-gradient(135deg, #f8fffe 0%, #f0f9f0 100%);
+  background: #ffffff;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -388,8 +388,7 @@ html {
 
 /* Enhanced Button Styles */
 .btn-primary {
-  @apply bg-krishian-green hover:bg-primary-700 text-white font-semibold py-4 px-8 rounded-card transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary-200;
-  background: linear-gradient(135deg, var(--color-primary) 0%, #047857 100%);
+  @apply bg-krishian-green hover:bg-krishian-green/90 text-white font-semibold py-4 px-8 rounded-card transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-krishian-green/20;
   box-shadow: var(--shadow-card);
   position: relative;
   overflow: hidden;
@@ -411,17 +410,17 @@ html {
 }
 
 .btn-secondary {
-  @apply bg-white hover:bg-gray-50 text-krishian-dark font-semibold py-4 px-8 rounded-card border-2 border-krishian-green transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary-200;
+  @apply bg-white hover:bg-gray-50 text-krishian-dark font-semibold py-4 px-8 rounded-card border-2 border-krishian-green transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-krishian-green/20;
   box-shadow: var(--shadow-soft);
 }
 
 .btn-accent {
-  @apply bg-krishian-accent hover:bg-accent-600 text-white font-semibold py-4 px-8 rounded-card transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-accent-200;
+  @apply bg-krishian-green hover:bg-krishian-green/90 text-white font-semibold py-4 px-8 rounded-card transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-krishian-green/20;
   box-shadow: var(--shadow-card);
 }
 
 .btn-outline {
-  @apply bg-transparent hover:bg-krishian-green text-krishian-green hover:text-white font-semibold py-4 px-8 rounded-card border-2 border-krishian-green transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary-200;
+  @apply bg-transparent hover:bg-krishian-green text-krishian-green hover:text-white font-semibold py-4 px-8 rounded-card border-2 border-krishian-green transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-krishian-green/20;
 }
 
 /* Enhanced card hover effects */

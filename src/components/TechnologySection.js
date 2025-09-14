@@ -161,20 +161,9 @@ const TechnologySection = () => {
           transition={{ duration: 0.8 }}
         >
           <div className="bg-gradient-to-br from-krishian-green/10 via-white to-krishian-accent/10 rounded-3xl p-16 text-krishian-dark relative overflow-hidden border-2 border-krishian-green/20">
-            {/* Animated Background */}
+            {/* Simple Background */}
             <div className="absolute inset-0">
-              <div className="absolute inset-0 bg-gradient-to-r from-krishian-green/20 via-krishian-accent/20 to-krishian-green/20"></div>
-              <div className="absolute inset-0" style={{
-                backgroundImage: `radial-gradient(circle at 25% 25%, rgba(11, 110, 79, 0.1) 0%, transparent 50%),
-                                radial-gradient(circle at 75% 75%, rgba(246, 165, 0, 0.1) 0%, transparent 50%)`
-              }}></div>
-              
-              {/* Floating Neural Network Nodes */}
-              <div className="absolute top-20 left-20 w-4 h-4 bg-krishian-green rounded-full animate-pulse"></div>
-              <div className="absolute top-32 right-32 w-3 h-3 bg-krishian-accent rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-              <div className="absolute bottom-32 left-1/3 w-5 h-5 bg-krishian-green rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-              <div className="absolute bottom-20 right-20 w-4 h-4 bg-krishian-accent rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
-              <div className="absolute top-1/2 left-10 w-3 h-3 bg-krishian-green rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+              <div className="absolute inset-0 bg-krishian-green/10"></div>
             </div>
             
             <div className="relative z-10">
