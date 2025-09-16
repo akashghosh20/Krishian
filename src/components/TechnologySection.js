@@ -3,6 +3,25 @@ import { motion } from 'framer-motion';
 
 const TechnologySection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const appGalleries = [
+    [
+      'https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1200&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1542801637-3c0a1120d8d6?w=1200&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1513883049090-d0b7439799bf?w=1200&auto=format&fit=crop&q=80'
+    ],
+    [
+      'https://images.unsplash.com/photo-1543251696-8cf4a91d7b83?w=1200&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&auto=format&fit=crop&q=80'
+    ],
+    [
+      'https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=1200&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&auto=format&fit=crop&q=80'
+    ],
+    [
+      'https://images.unsplash.com/photo-1586771107445-d3ca888129ce?w=1200&auto=format&fit=crop&q=80'
+    ]
+  ];
   const sectionRef = useRef(null);
 
   const technologies = [
@@ -11,36 +30,36 @@ const TechnologySection = () => {
       title: "Mobile App (Flutter)",
       description: "Cross-platform mobile app for farmers and buyers",
       features: ["Offline functionality", "Real-time notifications", "Easy-to-use interface", "Multi-language support"],
-      color: "from-blue-500 to-blue-600",
-      bgColor: "bg-blue-50",
-      iconBg: "bg-blue-100"
+      color: "from-krishian-green to-krishian-blue",
+      bgColor: "bg-white",
+      iconBg: "bg-krishian-green/10"
     },
     {
       icon: "💻",
       title: "Admin Dashboard",
       description: "Laravel, MySQL, Redis powered management system",
       features: ["Real-time analytics", "User management", "Transaction tracking", "Performance monitoring"],
-      color: "from-green-500 to-green-600",
-      bgColor: "bg-green-50",
-      iconBg: "bg-green-100"
+      color: "from-krishian-green to-krishian-blue",
+      bgColor: "bg-white",
+      iconBg: "bg-krishian-blue/10"
     },
     {
       icon: "🤖",
       title: "AI Price Prediction",
       description: "Machine learning model to forecast market trends",
       features: ["Price forecasting", "Risk assessment", "Market analysis", "Trend prediction"],
-      color: "from-purple-500 to-purple-600",
-      bgColor: "bg-purple-50",
-      iconBg: "bg-purple-100"
+      color: "from-krishian-green to-krishian-blue",
+      bgColor: "bg-white",
+      iconBg: "bg-krishian-green/10"
     },
     {
       icon: "🌐",
       title: "Low-bandwidth Optimized",
       description: "Designed for rural areas with limited internet",
       features: ["Data compression", "Progressive loading", "Offline sync", "Rural connectivity"],
-      color: "from-orange-500 to-orange-600",
-      bgColor: "bg-orange-50",
-      iconBg: "bg-orange-100"
+      color: "from-krishian-green to-krishian-blue",
+      bgColor: "bg-white",
+      iconBg: "bg-krishian-blue/10"
     }
   ];
 
@@ -109,7 +128,7 @@ const TechnologySection = () => {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <div className={`${tech.bgColor} rounded-card p-8 shadow-card hover:shadow-glow transition-all duration-300 border border-gray-100 group-hover:border-krishian-green/20 group-hover:-translate-y-2 h-full`}>
+              <button onClick={() => setActiveIndex(index)} className={`${tech.bgColor} rounded-card p-8 w-full text-left shadow-card hover:shadow-glow transition-all duration-300 border border-gray-100 group-hover:border-krishian-green/20 group-hover:-translate-y-2 h-full`}>
                 {/* Icon */}
                 <div className={`w-16 h-16 ${tech.iconBg} rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   <span className="text-3xl">{tech.icon}</span>
@@ -147,7 +166,7 @@ const TechnologySection = () => {
                     }}
                   ></div>
                 </div>
-              </div>
+              </button>
             </motion.div>
           ))}
         </div>
@@ -160,7 +179,7 @@ const TechnologySection = () => {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="bg-gradient-to-br from-krishian-green/10 via-white to-krishian-accent/10 rounded-3xl p-16 text-krishian-dark relative overflow-hidden border-2 border-krishian-green/20">
+          <div className="bg-gradient-to-br from-krishian-green/10 via-white to-krishian-blue/10 rounded-3xl p-16 text-krishian-dark relative overflow-hidden border-2 border-krishian-green/20">
             {/* Simple Background */}
             <div className="absolute inset-0">
               <div className="absolute inset-0 bg-krishian-green/10"></div>
@@ -170,13 +189,13 @@ const TechnologySection = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 {/* Left - AI Description */}
                 <div>
-                  <div className="inline-flex items-center bg-gradient-to-r from-krishian-green/20 to-krishian-accent/20 px-6 py-3 rounded-full border border-krishian-green/30 mb-8">
+                  <div className="inline-flex items-center bg-gradient-to-r from-krishian-green/20 to-krishian-blue/20 px-6 py-3 rounded-full border border-krishian-green/30 mb-8">
                     <div className="w-3 h-3 bg-krishian-green rounded-full mr-3 animate-pulse"></div>
                     <span className="text-krishian-green font-semibold text-sm">AI Price Prediction Model</span>
                   </div>
                   
                   <h3 className="text-5xl font-bold text-krishian-dark mb-6">
-                    <span className="bg-gradient-to-r from-krishian-green to-krishian-accent bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-krishian-green to-krishian-blue bg-clip-text text-transparent">
                       Neural Intelligence
                     </span>
                     <br />
@@ -193,8 +212,8 @@ const TechnologySection = () => {
                       <div className="text-3xl font-bold text-krishian-green mb-2">95%</div>
                       <div className="text-sm text-gray-700">Prediction Accuracy</div>
                     </div>
-                    <div className="bg-krishian-accent/10 backdrop-blur-sm rounded-2xl p-6 border border-krishian-accent/20">
-                      <div className="text-3xl font-bold text-krishian-accent mb-2">24/7</div>
+                    <div className="bg-krishian-blue/10 backdrop-blur-sm rounded-2xl p-6 border border-krishian-blue/20">
+                      <div className="text-3xl font-bold text-krishian-blue mb-2">24/7</div>
                       <div className="text-sm text-gray-700">Real-time Analysis</div>
                     </div>
                   </div>
@@ -209,75 +228,36 @@ const TechnologySection = () => {
                       "Supply chain optimization"
                     ].map((feature, index) => (
                       <div key={index} className="flex items-center space-x-4">
-                        <div className="w-2 h-2 bg-gradient-to-r from-krishian-green to-krishian-accent rounded-full"></div>
+                        <div className="w-2 h-2 bg-gradient-to-r from-krishian-green to-krishian-blue rounded-full"></div>
                         <span className="text-gray-700">{feature}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Right - Interactive AI Visualization */}
+                {/* Right: App images carousel */}
                 <div className="relative">
-                  <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-krishian-green/20 relative overflow-hidden">
-                    {/* AI Brain Visualization */}
-                    <div className="text-center mb-8">
-                      <div className="w-24 h-24 mx-auto bg-gradient-to-r from-krishian-green to-krishian-accent rounded-full flex items-center justify-center mb-4 animate-pulse">
-                        <span className="text-4xl">🧠</span>
-                      </div>
-                      <h4 className="text-2xl font-bold text-krishian-dark mb-2">AI Neural Network</h4>
-                      <p className="text-gray-700">Processing live data streams</p>
+                  <div className="overflow-hidden rounded-2xl">
+                    <div className="flex transition-transform duration-500">
+                      {appGalleries[activeIndex].map((img, i) => (
+                        <div key={i} className="min-w-full">
+                          <div className="h-64 md:h-72 bg-cover bg-center" style={{ backgroundImage: `url('${img}')` }} />
+                        </div>
+                      ))}
                     </div>
-                    
-                    {/* Data Flow Visualization */}
-                    <div className="space-y-6">
-                      {/* Input Data */}
-                      <div className="flex justify-between items-center">
-                        <div className="text-sm text-gray-700">Market Data</div>
-                        <div className="w-32 h-2 bg-gray-300 rounded-full overflow-hidden">
-                          <div className="h-full bg-gradient-to-r from-krishian-green to-krishian-accent rounded-full animate-pulse" style={{ width: '85%' }}></div>
-                        </div>
-                        <div className="text-sm text-krishian-green font-bold">85%</div>
-                      </div>
-                      
-                      <div className="flex justify-between items-center">
-                        <div className="text-sm text-gray-700">Weather Data</div>
-                        <div className="w-32 h-2 bg-gray-300 rounded-full overflow-hidden">
-                          <div className="h-full bg-gradient-to-r from-krishian-accent to-krishian-green rounded-full animate-pulse" style={{ width: '92%' }}></div>
-                        </div>
-                        <div className="text-sm text-krishian-accent font-bold">92%</div>
-                      </div>
-                      
-                      <div className="flex justify-between items-center">
-                        <div className="text-sm text-gray-700">Historical Data</div>
-                        <div className="w-32 h-2 bg-gray-300 rounded-full overflow-hidden">
-                          <div className="h-full bg-gradient-to-r from-krishian-green to-krishian-accent rounded-full animate-pulse" style={{ width: '78%' }}></div>
-                        </div>
-                        <div className="text-sm text-krishian-green font-bold">78%</div>
-          </div>
-          
-                      <div className="flex justify-between items-center">
-                        <div className="text-sm text-gray-700">Global Trends</div>
-                        <div className="w-32 h-2 bg-gray-300 rounded-full overflow-hidden">
-                          <div className="h-full bg-gradient-to-r from-krishian-accent to-krishian-green rounded-full animate-pulse" style={{ width: '88%' }}></div>
-                        </div>
-                        <div className="text-sm text-krishian-accent font-bold">88%</div>
-                      </div>
-            </div>
-                    
-                    {/* Prediction Output */}
-                    <div className="mt-8 text-center">
-                      <div className="text-4xl font-bold text-krishian-green mb-2">+23%</div>
-                      <div className="text-sm text-gray-700">Predicted Price Increase</div>
-                      <div className="text-xs text-gray-600 mt-2">Next 30 days</div>
-            </div>
+                  </div>
+                  <div className="mt-3 flex gap-2 justify-center">
+                    {appGalleries[activeIndex].map((_, i) => (
+                      <span key={i} className="w-2.5 h-2.5 rounded-full bg-krishian-green/70" />
+                    ))}
+                  </div>
+                </div>
             </div>
                   
                   {/* Floating Elements */}
                   <div className="absolute -top-4 -right-4 w-8 h-8 bg-krishian-green/30 rounded-full animate-ping"></div>
-                  <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-krishian-accent/30 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
+                  <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-krishian-blue/30 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
             </div>
-          </div>
-        </div>
           </div>
         </motion.div>
 

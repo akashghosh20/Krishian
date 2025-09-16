@@ -24,7 +24,7 @@ const HomePage = () => {
 			<Navbar />
 			<ImageSlider />
 			<CrisisAlertSection />
-			<UNSDGSection />
+		
 			<ProblemCardsSection />
 			<AboutSection />
 			<HowItWorksSection />
@@ -32,9 +32,10 @@ const HomePage = () => {
 			<FasholSolutionSection />
 			<TechnologySection />
 			<TestimonialsSection />
+			<UNSDGSection />
 			<FAQSection />
 			<ContactSection />
-			{/* <ImpactSection /> */}
+			<ImpactSection />
 			<Footer />
 			<WhatsAppButton />
 			<ScrollToTop />

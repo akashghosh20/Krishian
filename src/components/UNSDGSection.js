@@ -29,9 +29,9 @@ const UNSDGSection = () => {
       number: "1",
       title: "NO POVERTY",
       subtitle: "End poverty in all forms everywhere",
-      color: "from-krishian-green to-green-600",
-      bgColor: "bg-gradient-to-br from-green-50 to-green-100",
-      borderColor: "border-green-200",
+      color: "from-krishian-green to-krishian-blue",
+      bgColor: "bg-gradient-to-br from-krishian-green/5 to-krishian-blue/5",
+      borderColor: "border-krishian-green/20",
       icon: "🌾",
       description: "Empowering farmers with better income opportunities through direct market access",
       impact: "30-50% income increase",
@@ -42,9 +42,9 @@ const UNSDGSection = () => {
       number: "2",
       title: "ZERO HUNGER",
       subtitle: "End hunger, achieve food security",
-      color: "from-krishian-accent to-orange-600",
-      bgColor: "bg-gradient-to-br from-orange-50 to-orange-100",
-      borderColor: "border-orange-200",
+      color: "from-krishian-green to-krishian-blue",
+      bgColor: "bg-gradient-to-br from-krishian-green/5 to-krishian-blue/5",
+      borderColor: "border-krishian-green/20",
       icon: "🌱",
       description: "Reducing food waste and ensuring food security through efficient supply chains",
       impact: "40% waste reduction",
@@ -55,9 +55,9 @@ const UNSDGSection = () => {
       number: "8",
       title: "DECENT WORK",
       subtitle: "Promote sustained economic growth",
-      color: "from-krishian-green to-green-600",
-      bgColor: "bg-gradient-to-br from-green-50 to-green-100",
-      borderColor: "border-green-200",
+      color: "from-krishian-green to-krishian-blue",
+      bgColor: "bg-gradient-to-br from-krishian-green/5 to-krishian-blue/5",
+      borderColor: "border-krishian-green/20",
       icon: "💰",
       description: "Creating sustainable livelihoods and decent work for agricultural communities",
       impact: "1000+ jobs created",
@@ -68,9 +68,9 @@ const UNSDGSection = () => {
       number: "9",
       title: "INNOVATION",
       subtitle: "Build resilient infrastructure",
-      color: "from-krishian-accent to-orange-600",
-      bgColor: "bg-gradient-to-br from-orange-50 to-orange-100",
-      borderColor: "border-orange-200",
+      color: "from-krishian-green to-krishian-blue",
+      bgColor: "bg-gradient-to-br from-krishian-green/5 to-krishian-blue/5",
+      borderColor: "border-krishian-green/20",
       icon: "🚀",
       description: "Building smart agricultural infrastructure and promoting innovation",
       impact: "20+ collection points",
@@ -81,9 +81,9 @@ const UNSDGSection = () => {
       number: "12",
       title: "RESPONSIBLE",
       subtitle: "Ensure sustainable consumption",
-      color: "from-krishian-green to-green-600",
-      bgColor: "bg-gradient-to-br from-green-50 to-green-100",
-      borderColor: "border-green-200",
+      color: "from-krishian-green to-krishian-blue",
+      bgColor: "bg-gradient-to-br from-krishian-green/5 to-krishian-blue/5",
+      borderColor: "border-krishian-green/20",
       icon: "♻️",
       description: "Promoting sustainable farming practices and responsible consumption",
       impact: "Zero waste agriculture",
@@ -94,9 +94,9 @@ const UNSDGSection = () => {
       number: "13",
       title: "CLIMATE ACTION",
       subtitle: "Take urgent climate action",
-      color: "from-krishian-accent to-orange-600",
-      bgColor: "bg-gradient-to-br from-orange-50 to-orange-100",
-      borderColor: "border-orange-200",
+      color: "from-krishian-green to-krishian-blue",
+      bgColor: "bg-gradient-to-br from-krishian-green/5 to-krishian-blue/5",
+      borderColor: "border-krishian-green/20",
       icon: "🌍",
       description: "Supporting climate-smart agriculture and environmental protection",
       impact: "Carbon neutral farming",
@@ -121,7 +121,7 @@ const UNSDGSection = () => {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
         >
-        <div className="inline-flex items-center bg-gradient-to-r from-krishian-green/20 to-krishian-accent/20 px-8 py-4 rounded-full border border-krishian-green/30 mb-8">
+        <div className="inline-flex items-center bg-gradient-to-r from-krishian-green/20 to-krishian-blue/20 px-8 py-4 rounded-full border border-krishian-green/30 mb-8">
           <div className="w-3 h-3 bg-krishian-green rounded-full mr-3 animate-pulse"></div>
           <span className="text-krishian-green font-semibold text-sm">UN Sustainable Development Goals</span>
         </div>
@@ -131,7 +131,7 @@ const UNSDGSection = () => {
             Global Impact
           </span>
           <br />
-          <span className="bg-gradient-to-r from-krishian-green via-krishian-accent to-krishian-green bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-krishian-green via-krishian-blue to-krishian-green bg-clip-text text-transparent">
             Through Innovation
           </span>
         </h2>

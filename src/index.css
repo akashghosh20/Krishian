@@ -4,9 +4,23 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-/* CSS Custom Properties for Design System */
+/* CSS Custom Properties for Unified Krishian Design System */
 :root {
-  /* Colors */
+  /* Unified Brand Colors */
+  --color-krishian-green: rgb(160,199,82);
+  --color-krishian-dark: rgb(83,109,75);
+  --color-krishian-white: #ffffff;
+  --color-krishian-blue: #1e3a8a;
+  
+  /* Extended Palette */
+  --color-krishian-green-light: rgb(180,215,100);
+  --color-krishian-green-dark: rgb(140,179,70);
+  --color-krishian-dark-light: rgb(100,125,90);
+  --color-krishian-dark-dark: rgb(65,85,60);
+  --color-krishian-blue-light: #3b82f6;
+  --color-krishian-blue-dark: #1e40af;
+  
+  /* Legacy colors for compatibility */
   --color-primary: #0B6E4F;
   --color-accent: #F6A500;
   --color-dark: #0F1724;
@@ -30,14 +44,16 @@
   --spacing-2xl: 3rem;
   --spacing-3xl: 4rem;
   
-  /* Border Radius */
-  --radius-card: 0.5rem;
+  /* Border Radius - Consistent rounded corners */
+  --radius-card: 1rem; /* 2xl equivalent */
   --radius-pill: 9999px;
+  --radius-button: 0.75rem;
   
-  /* Shadows */
+  /* Shadows - Professional and soft */
   --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-glow: 0 0 20px rgba(11, 110, 79, 0.3);
+  --shadow-glow: 0 0 20px rgba(160, 199, 82, 0.3);
+  --shadow-glow-blue: 0 0 20px rgba(30, 58, 138, 0.3);
   
   /* Transitions */
   --transition-fast: 0.2s ease-out;
@@ -79,6 +95,32 @@ body {
   }
 }
 
+/* Performance optimizations */
+.card-hover-unified,
+.btn-hover-unified {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* GPU acceleration for smooth animations */
+.gradient-green,
+.gradient-blue,
+.text-gradient,
+.text-gradient-blue {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Optimize font loading */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+  src: url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -89,12 +131,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #8CC63F;
+  background: rgb(160,199,82);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2E5A27;
+  background: rgb(83,109,75);
 }
 
 /* Smooth scrolling */
@@ -386,9 +428,9 @@ html {
   animation: none !important;
 }
 
-/* Enhanced Button Styles */
+/* Enhanced Button Styles - Unified Design System */
 .btn-primary {
-  @apply bg-krishian-green hover:bg-krishian-green/90 text-white font-semibold py-4 px-8 rounded-card transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-krishian-green/20;
+  @apply bg-krishian-green hover:bg-krishian-green-dark text-krishian-white font-semibold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-krishian-green/20;
   box-shadow: var(--shadow-card);
   position: relative;
   overflow: hidden;
@@ -410,17 +452,17 @@ html {
 }
 
 .btn-secondary {
-  @apply bg-white hover:bg-gray-50 text-krishian-dark font-semibold py-4 px-8 rounded-card border-2 border-krishian-green transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-krishian-green/20;
+  @apply bg-krishian-white hover:bg-gray-50 text-krishian-dark font-semibold py-4 px-8 rounded-2xl border-2 border-krishian-green transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-krishian-green/20;
   box-shadow: var(--shadow-soft);
 }
 
 .btn-accent {
-  @apply bg-krishian-green hover:bg-krishian-green/90 text-white font-semibold py-4 px-8 rounded-card transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-krishian-green/20;
-  box-shadow: var(--shadow-card);
+  @apply bg-krishian-blue hover:bg-krishian-blue-dark text-krishian-white font-semibold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-krishian-blue/20;
+  box-shadow: var(--shadow-glow-blue);
 }
 
 .btn-outline {
-  @apply bg-transparent hover:bg-krishian-green text-krishian-green hover:text-white font-semibold py-4 px-8 rounded-card border-2 border-krishian-green transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-krishian-green/20;
+  @apply bg-transparent hover:bg-krishian-green text-krishian-green hover:text-krishian-white font-semibold py-4 px-8 rounded-2xl border-2 border-krishian-green transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-krishian-green/20;
 }
 
 /* Enhanced card hover effects */
@@ -433,9 +475,9 @@ html {
   box-shadow: none;
 }
 
-/* Gradient backgrounds with 3D effect */
+/* Gradient backgrounds with unified design */
 .gradient-green {
-  background: linear-gradient(135deg, #8CC63F 0%, #7AB83A 25%, #6BA832 50%, #5A9A2A 75%, #2E5A27 100%);
+  background: linear-gradient(135deg, rgb(160,199,82) 0%, rgb(140,179,70) 50%, rgb(83,109,75) 100%);
   position: relative;
 }
 
@@ -455,9 +497,38 @@ html {
   transform: translateX(100%);
 }
 
-/* Text gradient with 3D effect */
+.gradient-blue {
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #1e40af 100%);
+  position: relative;
+}
+
+.gradient-blue::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.gradient-blue:hover::before {
+  transform: translateX(100%);
+}
+
+/* Text gradient with unified colors */
 .text-gradient {
-  background: linear-gradient(135deg, #8CC63F 0%, #7AB83A 25%, #6BA832 50%, #5A9A2A 75%, #2E5A27 100%);
+  background: linear-gradient(135deg, rgb(160,199,82) 0%, rgb(83,109,75) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.text-gradient-blue {
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -508,7 +579,7 @@ html {
   animation: morphing 8s ease-in-out infinite;
 }
 
-/* Intersection Observer animations */
+/* Enhanced Intersection Observer animations */
 .fade-in {
   opacity: 0;
   transform: translateY(50px);
@@ -551,6 +622,78 @@ html {
 .scale-in.visible {
   opacity: 1;
   transform: scale(1);
+}
+
+/* New unified animation classes */
+.slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.slide-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bounce-in {
+  opacity: 0;
+  transform: scale(0.3) translateY(50px);
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.bounce-in.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.rotate-in {
+  opacity: 0;
+  transform: rotate(-10deg) scale(0.8);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.rotate-in.visible {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* Card hover animations */
+.card-hover-unified {
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.card-hover-unified:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-card);
+}
+
+/* Button hover animations */
+.btn-hover-unified {
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-hover-unified:hover {
+  transform: translateY(-2px) scale(1.05);
+}
+
+.btn-hover-unified::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-hover-unified:hover::before {
+  left: 100%;
 }
 
 /* Advanced Particle System */
@@ -596,7 +739,7 @@ html {
   animation: float 22s infinite linear, morphing3d 6s infinite ease-in-out;
 }
 
-/* Responsive 3D effects */
+/* Responsive Design Improvements */
 @media (max-width: 768px) {
   .card-3d:hover {
     transform: rotateY(5deg) rotateX(2deg) translateZ(10px);
@@ -604,5 +747,74 @@ html {
   
   .card-hover:hover {
     transform: translateY(-5px) rotateX(2deg) rotateY(2deg);
+  }
+  
+  /* Mobile-optimized animations */
+  .card-hover-unified:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+  
+  .btn-hover-unified:hover {
+    transform: translateY(-1px) scale(1.02);
+  }
+  
+  /* Reduce motion on mobile for better performance */
+  .animate-bounce {
+    animation-duration: 2s;
+  }
+  
+  .animate-pulse {
+    animation-duration: 3s;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Further mobile optimizations */
+  .card-hover-unified:hover {
+    transform: translateY(-2px) scale(1.005);
+  }
+  
+  .btn-hover-unified:hover {
+    transform: translateY(-1px) scale(1.01);
+  }
+  
+  /* Adjust spacing for mobile */
+  .rounded-2xl {
+    border-radius: 1rem;
+  }
+  
+  .rounded-3xl {
+    border-radius: 1.5rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .card-hover-unified {
+    border-width: 2px;
+  }
+  
+  .btn-primary,
+  .btn-secondary,
+  .btn-accent,
+  .btn-outline {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .card-hover-unified:hover {
+    transform: none;
+  }
+  
+  .btn-hover-unified:hover {
+    transform: none;
+  }
+  
+  .animate-bounce,
+  .animate-pulse,
+  .animate-float {
+    animation: none;
   }
 }

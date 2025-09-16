@@ -7,16 +7,24 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Primary brand colors
-        'krishian-green': '#0B6E4F', // Deep green
-        'krishian-accent': '#F6A500', // Warm orange
-        'krishian-dark': '#0F1724', // Near-black
-        'krishian-muted': '#6B7280', // Muted gray
-        'krishian-surface': '#FFFFFF', // White surface
+        // Unified Krishian Brand Colors
+        'krishian-green': 'rgb(160,199,82)', // Primary Krishian green from logo
+        'krishian-dark': 'rgb(83,109,75)', // Dark green from logo
+        'krishian-white': '#ffffff', // Pure white
+        'krishian-blue': '#1e3a8a', // Modern accent blue
+        
+        // Extended palette based on brand colors
+        'krishian-green-light': 'rgb(180,215,100)',
+        'krishian-green-dark': 'rgb(140,179,70)',
+        'krishian-dark-light': 'rgb(100,125,90)',
+        'krishian-dark-dark': 'rgb(65,85,60)',
+        'krishian-blue-light': '#3b82f6',
+        'krishian-blue-dark': '#1e40af',
         
         // Legacy colors for backward compatibility
         'krishian-green-old': '#8CC63F',
         'krishian-dark-old': '#2E5A27',
+        'krishian-accent': '#F6A500', // Keep for existing components
         
         // Extended color palette
         'primary': {

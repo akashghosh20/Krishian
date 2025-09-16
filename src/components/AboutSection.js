@@ -50,20 +50,26 @@ const AboutSection = () => {
   ];
 
   return (
-    <section ref={sectionRef} id="about" className="py-24 bg-gradient-to-br from-gray-50 via-white to-green-50 relative overflow-hidden">
-      {/* Background animations removed */}
+    <section ref={sectionRef} id="about" className="py-24 bg-gradient-to-br from-krishian-white via-gray-50 to-krishian-green/5 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 25% 25%, rgba(160,199,82,0.1) 0%, transparent 50%),
+                          radial-gradient(circle at 75% 75%, rgba(30,58,138,0.1) 0%, transparent 50%)`
+        }}></div>
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Enhanced Header */}
         <div className="text-center mb-20">
           <div className="inline-block mb-8">
-            <span className="inline-flex items-center bg-krishian-green bg-opacity-10 text-krishian-dark px-6 py-3 rounded-full text-sm font-medium group">
-              <div className="w-3 h-3 bg-krishian-green rounded-full mr-3"></div>
+            <span className="inline-flex items-center bg-krishian-green/10 text-krishian-green px-6 py-3 rounded-2xl text-sm font-medium border border-krishian-green/20 group">
+              <div className="w-3 h-3 bg-krishian-green rounded-full mr-3 animate-pulse"></div>
               <span className="group-hover:scale-105 transition-transform duration-300">Our Story</span>
             </span>
           </div>
           <h2 className="text-5xl md:text-6xl font-bold text-krishian-dark mb-8">
-            About <span className="text-gradient-animated">Krishian</span>
+            About <span className="text-gradient">Krishian</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             We are a team of passionate individuals dedicated to transforming agriculture through technology and innovation, creating a sustainable future for farmers worldwide.
@@ -102,7 +108,7 @@ const AboutSection = () => {
             <img 
               src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1184&q=80"
               alt="Team working together"
-              className="w-full h-96 object-cover rounded-2xl shadow-xl"
+              className="w-full h-96 object-cover rounded-2xl shadow-xl border border-krishian-green/10"
             />
           </div>
         </div>
@@ -114,8 +120,8 @@ const AboutSection = () => {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamMembers.map((member, index) => (
-              <div key={index} className="bg-white rounded-2xl p-6 text-center card-hover shadow-lg">
-                <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
+              <div key={index} className="bg-krishian-white rounded-2xl p-6 text-center card-hover-unified shadow-lg border border-gray-100 hover:border-krishian-green/20">
+                <div className="w-24 h-24 mx-auto mb-4 rounded-2xl overflow-hidden border border-krishian-green/10">
                   <img 
                     src={member.image} 
                     alt={member.name}

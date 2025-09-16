@@ -18,7 +18,7 @@ const ImpactSection = () => {
       suffix: "-50%",
       label: "Expected Income Increase",
       description: "for farmers using our platform",
-      color: "from-green-500 to-green-600",
+      color: "from-krishian-green to-krishian-blue",
       icon: "📈"
     },
     {
@@ -26,7 +26,7 @@ const ImpactSection = () => {
       suffix: "%",
       label: "Reduction in Waste",
       description: "post-harvest crop loss reduction",
-      color: "from-orange-500 to-orange-600",
+      color: "from-krishian-green to-krishian-blue",
       icon: "♻️"
     },
     {
@@ -34,7 +34,7 @@ const ImpactSection = () => {
       suffix: "+",
       label: "Farmers Onboarded",
       description: "in the first year of operation",
-      color: "from-blue-500 to-blue-600",
+      color: "from-krishian-green to-krishian-blue",
       icon: "👨‍🌾"
     },
     {
@@ -42,7 +42,7 @@ const ImpactSection = () => {
       suffix: "+",
       label: "Buyers Served",
       description: "retailers and wholesalers connected",
-      color: "from-purple-500 to-purple-600",
+      color: "from-krishian-green to-krishian-blue",
       icon: "🏪"
     },
     {
@@ -50,7 +50,7 @@ const ImpactSection = () => {
       suffix: "+",
       label: "Collection Points",
       description: "set up nationwide",
-      color: "from-krishian-green to-krishian-dark",
+      color: "from-krishian-green to-krishian-blue",
       icon: "🏢"
     }
   ];
@@ -156,12 +156,12 @@ const ImpactSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+    <section ref={sectionRef} className="py-24 bg-gradient-to-br from-krishian-white to-gray-50 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 25% 25%, rgba(11, 110, 79, 0.1) 0%, transparent 50%),
-                          radial-gradient(circle at 75% 75%, rgba(246, 165, 0, 0.1) 0%, transparent 50%)`
+          backgroundImage: `radial-gradient(circle at 25% 25%, rgba(160,199,82,0.1) 0%, transparent 50%),
+                          radial-gradient(circle at 75% 75%, rgba(30,58,138,0.1) 0%, transparent 50%)`
         }}></div>
       </div>
 
@@ -175,8 +175,8 @@ const ImpactSection = () => {
           transition={{ duration: 0.8 }}
         >
           <div className="inline-block mb-6">
-            <span className="inline-flex items-center bg-krishian-green/10 text-krishian-green px-6 py-3 rounded-pill text-sm font-medium">
-              <div className="w-2 h-2 bg-krishian-green rounded-full mr-3"></div>
+            <span className="inline-flex items-center bg-krishian-green/10 text-krishian-green px-6 py-3 rounded-2xl text-sm font-medium border border-krishian-green/20">
+              <div className="w-2 h-2 bg-krishian-green rounded-full mr-3 animate-pulse"></div>
               <span>Our Impact</span>
             </span>
           </div>
@@ -201,9 +201,9 @@ const ImpactSection = () => {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <div className="bg-white rounded-card p-8 shadow-card hover:shadow-glow transition-all duration-300 border border-gray-100 group-hover:border-krishian-green/20 group-hover:-translate-y-2">
+              <div className="bg-krishian-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group-hover:border-krishian-green/20 group-hover:-translate-y-2 card-hover-unified">
                 {/* Icon */}
-                <div className="w-16 h-16 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-gradient-to-br from-krishian-green/10 to-krishian-green/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                   <span className="text-3xl">{metric.icon}</span>
                 </div>
 
@@ -242,59 +242,7 @@ const ImpactSection = () => {
           ))}
         </div>
 
-        {/* Testimonials Section */}
-        <motion.div 
-          className="mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-krishian-dark mb-4">
-              What Our Users Say
-            </h3>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Real stories from farmers and buyers who are experiencing the transformation firsthand.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                className="bg-white rounded-card p-8 shadow-card hover:shadow-glow transition-all duration-300 border border-gray-100 group-hover:border-krishian-green/20 group-hover:-translate-y-2"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                {/* Rating */}
-                <div className="flex items-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <span key={i} className="text-krishian-accent text-xl">★</span>
-                  ))}
-                </div>
-
-                {/* Quote */}
-                <blockquote className="text-gray-700 leading-relaxed mb-6 text-lg">
-                  "{testimonial.quote}"
-                </blockquote>
-
-                {/* Author */}
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-krishian-green/20 to-krishian-green/10 rounded-full flex items-center justify-center">
-                    <span className="text-2xl">{testimonial.avatar}</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-krishian-dark">{testimonial.name}</h4>
-                    <p className="text-gray-600 text-sm">{testimonial.role}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+        {/* Testimonials Section removed as requested */}
 
         {/* Ripple Effect Section - Unique Design */}
         <motion.div 
@@ -304,21 +252,21 @@ const ImpactSection = () => {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="bg-white rounded-3xl p-16 text-krishian-dark relative overflow-hidden border-2 border-krishian-green/20">
+          <div className="bg-krishian-white rounded-3xl p-16 text-krishian-dark relative overflow-hidden border-2 border-krishian-green/20 shadow-xl">
             {/* Simple Background */}
             <div className="absolute inset-0">
-              <div className="absolute inset-0 bg-krishian-green/5"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-krishian-green/5 to-krishian-blue/5"></div>
             </div>
             
             <div className="relative z-10">
               <div className="text-center mb-16">
-                <div className="inline-flex items-center bg-gradient-to-r from-krishian-green/20 to-krishian-accent/20 px-8 py-4 rounded-full border border-krishian-green/30 mb-8">
+                <div className="inline-flex items-center bg-gradient-to-r from-krishian-green/20 to-krishian-blue/20 px-8 py-4 rounded-2xl border border-krishian-green/30 mb-8">
                   <div className="w-3 h-3 bg-krishian-green rounded-full mr-3 animate-pulse"></div>
                   <span className="text-krishian-green font-semibold text-sm">The Ripple Effect</span>
                 </div>
                 
                 <h3 className="text-6xl font-bold text-krishian-dark mb-6">
-                  <span className="bg-gradient-to-r from-krishian-green to-krishian-accent bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-krishian-green to-krishian-blue bg-clip-text text-transparent">
                     Creating Waves of
                   </span>
                   <br />
@@ -340,8 +288,8 @@ const ImpactSection = () => {
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.6, delay: 0.1 }}
                 >
-                  <div className="bg-krishian-green/10 backdrop-blur-sm rounded-3xl p-8 border border-krishian-green/20 group-hover:border-krishian-green/50 transition-all duration-300 group-hover:scale-105">
-                    <div className="w-20 h-20 mx-auto bg-gradient-to-r from-krishian-green to-green-600 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="bg-krishian-green/10 backdrop-blur-sm rounded-2xl p-8 border border-krishian-green/20 group-hover:border-krishian-green/50 transition-all duration-300 group-hover:scale-105 card-hover-unified">
+                    <div className="w-20 h-20 mx-auto bg-gradient-to-r from-krishian-green to-krishian-green-light rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                       <span className="text-3xl">👨‍🌾</span>
                     </div>
                     <h4 className="text-2xl font-bold text-krishian-dark mb-4">Direct Impact</h4>
@@ -359,13 +307,13 @@ const ImpactSection = () => {
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                 >
-                  <div className="bg-krishian-accent/10 backdrop-blur-sm rounded-3xl p-8 border border-krishian-accent/20 group-hover:border-krishian-accent/50 transition-all duration-300 group-hover:scale-105">
-                    <div className="w-20 h-20 mx-auto bg-gradient-to-r from-krishian-accent to-orange-600 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="bg-krishian-blue/10 backdrop-blur-sm rounded-2xl p-8 border border-krishian-blue/20 group-hover:border-krishian-blue/50 transition-all duration-300 group-hover:scale-105 card-hover-unified">
+                    <div className="w-20 h-20 mx-auto bg-gradient-to-r from-krishian-blue to-krishian-blue-light rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                       <span className="text-3xl">🏘️</span>
                     </div>
                     <h4 className="text-2xl font-bold text-krishian-dark mb-4">Community Impact</h4>
                     <p className="text-gray-700 mb-6">Rural communities see economic growth and stability</p>
-                    <div className="text-4xl font-bold text-krishian-accent mb-2">50+</div>
+                    <div className="text-4xl font-bold text-krishian-blue mb-2">50+</div>
                     <div className="text-sm text-gray-600">Communities Transformed</div>
                   </div>
                 </motion.div>
@@ -378,8 +326,8 @@ const ImpactSection = () => {
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
                 >
-                  <div className="bg-krishian-green/10 backdrop-blur-sm rounded-3xl p-8 border border-krishian-green/20 group-hover:border-krishian-green/50 transition-all duration-300 group-hover:scale-105">
-                    <div className="w-20 h-20 mx-auto bg-gradient-to-r from-krishian-green to-green-600 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="bg-krishian-green/10 backdrop-blur-sm rounded-2xl p-8 border border-krishian-green/20 group-hover:border-krishian-green/50 transition-all duration-300 group-hover:scale-105 card-hover-unified">
+                    <div className="w-20 h-20 mx-auto bg-gradient-to-r from-krishian-green to-krishian-green-light rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                       <span className="text-3xl">🇧🇩</span>
                     </div>
                     <h4 className="text-2xl font-bold text-krishian-dark mb-4">National Impact</h4>
@@ -394,7 +342,7 @@ const ImpactSection = () => {
               <div className="mt-16 text-center">
                 <div className="inline-flex items-center space-x-8">
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-krishian-green to-green-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <div className="w-16 h-16 bg-gradient-to-r from-krishian-green to-krishian-green-light rounded-2xl flex items-center justify-center mx-auto mb-2 shadow-lg">
                       <span className="text-2xl">🌾</span>
                     </div>
                     <div className="text-sm text-gray-700">Farmers</div>
@@ -403,16 +351,16 @@ const ImpactSection = () => {
                   <div className="text-2xl text-krishian-green">→</div>
                   
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-krishian-accent to-orange-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <div className="w-16 h-16 bg-gradient-to-r from-krishian-blue to-krishian-blue-light rounded-2xl flex items-center justify-center mx-auto mb-2 shadow-lg">
                       <span className="text-2xl">🏪</span>
                     </div>
                     <div className="text-sm text-gray-700">Buyers</div>
                   </div>
                   
-                  <div className="text-2xl text-krishian-accent">→</div>
+                  <div className="text-2xl text-krishian-blue">→</div>
                   
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-krishian-green to-green-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <div className="w-16 h-16 bg-gradient-to-r from-krishian-green to-krishian-green-light rounded-2xl flex items-center justify-center mx-auto mb-2 shadow-lg">
                       <span className="text-2xl">👥</span>
                     </div>
                     <div className="text-sm text-gray-700">Consumers</div>
@@ -421,7 +369,7 @@ const ImpactSection = () => {
                   <div className="text-2xl text-krishian-green">→</div>
                   
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-krishian-accent to-orange-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <div className="w-16 h-16 bg-gradient-to-r from-krishian-blue to-krishian-blue-light rounded-2xl flex items-center justify-center mx-auto mb-2 shadow-lg">
                       <span className="text-2xl">🌍</span>
                     </div>
                     <div className="text-sm text-gray-700">Global Impact</div>
@@ -440,7 +388,7 @@ const ImpactSection = () => {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <div className="bg-gradient-to-r from-krishian-green to-krishian-accent rounded-2xl p-12 text-white relative overflow-hidden">
+          <div className="bg-gradient-to-r from-krishian-green to-krishian-blue rounded-2xl p-12 text-krishian-white relative overflow-hidden shadow-xl">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-20">
               <div className="w-full h-full" style={{
@@ -450,20 +398,20 @@ const ImpactSection = () => {
             </div>
             
             <div className="relative z-10">
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              <h3 className="text-3xl md:text-4xl font-bold text-krishian-white mb-6">
                 Be Part of the Agricultural Revolution
               </h3>
-              <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
+              <p className="text-xl text-krishian-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
                 Join thousands of farmers and buyers who are already transforming their agricultural practices with Krishian. Together, we're building a sustainable future for agriculture.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-white text-krishian-dark font-semibold px-8 py-4 rounded-card hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
+                <button className="bg-krishian-white text-krishian-dark font-semibold px-8 py-4 rounded-2xl hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 btn-hover-unified shadow-lg">
                   Sign Up as Farmer
                 </button>
-                <button className="bg-white text-krishian-dark font-semibold px-8 py-4 rounded-card hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
+                <button className="bg-krishian-white text-krishian-dark font-semibold px-8 py-4 rounded-2xl hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 btn-hover-unified shadow-lg">
                   Sign Up as Buyer
                 </button>
-                <button className="border-2 border-white text-white font-semibold px-8 py-4 rounded-card hover:bg-white hover:text-krishian-dark transition-all duration-300 transform hover:scale-105">
+                <button className="border-2 border-krishian-white text-krishian-white font-semibold px-8 py-4 rounded-2xl hover:bg-krishian-white hover:text-krishian-dark transition-all duration-300 transform hover:scale-105 btn-hover-unified">
                   Contact Us
                 </button>
               </div>

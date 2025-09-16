@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 const TestimonialsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [perPage, setPerPage] = useState(4);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -24,6 +26,23 @@ const TestimonialsSection = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Responsive items per view
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width >= 1024) {
+        setPerPage(4);
+      } else if (width >= 768) {
+        setPerPage(2);
+      } else {
+        setPerPage(1);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const testimonials = [
     {
       name: "Rajesh Kumar",
@@ -31,9 +50,9 @@ const TestimonialsSection = () => {
       avatar: "👨‍🌾",
       content: "Krishian has transformed my farming business. I now get better prices for my crops and have direct access to buyers. My income has increased by 40% since joining the platform.",
       rating: 5,
-      color: "from-krishian-green to-green-600",
-      bgColor: "bg-gradient-to-br from-green-50 to-green-100",
-      borderColor: "border-green-200",
+      color: "from-krishian-green to-krishian-blue",
+      bgColor: "bg-gradient-to-br from-krishian-green/5 to-krishian-blue/5",
+      borderColor: "border-krishian-green/20",
       impact: "40% Income Increase"
     },
     {
@@ -42,9 +61,9 @@ const TestimonialsSection = () => {
       avatar: "👩‍💼",
       content: "The quality of produce I get through Krishian is exceptional. The logistics are smooth and I can track my orders in real-time. It's a game-changer for my business.",
       rating: 5,
-      color: "from-krishian-accent to-orange-600",
-      bgColor: "bg-gradient-to-br from-orange-50 to-orange-100",
-      borderColor: "border-orange-200",
+      color: "from-krishian-green to-krishian-blue",
+      bgColor: "bg-gradient-to-br from-krishian-green/5 to-krishian-blue/5",
+      borderColor: "border-krishian-green/20",
       impact: "100% Quality Assured"
     },
     {
@@ -53,9 +72,9 @@ const TestimonialsSection = () => {
       avatar: "👨‍🌾",
       content: "The mobile app is so easy to use. I can check market prices, connect with buyers, and manage my inventory all from my phone. It has made farming much more efficient.",
       rating: 5,
-      color: "from-krishian-green to-green-600",
-      bgColor: "bg-gradient-to-br from-green-50 to-green-100",
-      borderColor: "border-green-200",
+      color: "from-krishian-green to-krishian-blue",
+      bgColor: "bg-gradient-to-br from-krishian-green/5 to-krishian-blue/5",
+      borderColor: "border-krishian-green/20",
       impact: "24/7 Access"
     },
     {
@@ -64,9 +83,9 @@ const TestimonialsSection = () => {
       avatar: "👩‍💼",
       content: "Krishian has helped me build direct relationships with farmers. The transparency and fair pricing benefit both of us. My customers love the fresh produce quality.",
       rating: 5,
-      color: "from-krishian-accent to-orange-600",
-      bgColor: "bg-gradient-to-br from-orange-50 to-orange-100",
-      borderColor: "border-orange-200",
+      color: "from-krishian-green to-krishian-blue",
+      bgColor: "bg-gradient-to-br from-krishian-green/5 to-krishian-blue/5",
+      borderColor: "border-krishian-green/20",
       impact: "Direct Connection"
     },
     {
@@ -75,9 +94,9 @@ const TestimonialsSection = () => {
       avatar: "👨‍🌾",
       content: "Before Krishian, I was at the mercy of middlemen. Now I have control over my prices and can plan my harvests better. My family's life has completely changed.",
       rating: 5,
-      color: "from-krishian-green to-green-600",
-      bgColor: "bg-gradient-to-br from-green-50 to-green-100",
-      borderColor: "border-green-200",
+      color: "from-krishian-green to-krishian-blue",
+      bgColor: "bg-gradient-to-br from-krishian-green/5 to-krishian-blue/5",
+      borderColor: "border-krishian-green/20",
       impact: "Life Transformed"
     },
     {
@@ -86,9 +105,9 @@ const TestimonialsSection = () => {
       avatar: "👩‍💼",
       content: "The platform's AI predictions help me make better purchasing decisions. I can plan my inventory based on accurate market forecasts. It's like having a crystal ball!",
       rating: 5,
-      color: "from-krishian-accent to-orange-600",
-      bgColor: "bg-gradient-to-br from-orange-50 to-orange-100",
-      borderColor: "border-orange-200",
+      color: "from-krishian-green to-krishian-blue",
+      bgColor: "bg-gradient-to-br from-krishian-green/5 to-krishian-blue/5",
+      borderColor: "border-krishian-green/20",
       impact: "AI-Powered Insights"
     }
   ];
@@ -110,101 +129,106 @@ const TestimonialsSection = () => {
     );
   };
 
+  const totalSlides = Math.ceil(testimonials.length / perPage);
+  const goPrev = () => setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+  const goNext = () => setCurrentSlide((prev) => (prev + 1) % totalSlides);
+
   return (
-    <section ref={sectionRef} className="py-24 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+    <section ref={sectionRef} className="py-24 bg-gradient-to-br from-krishian-white to-gray-50 relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-krishian-green/5 via-krishian-accent/5 to-krishian-green/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-krishian-green/5 via-krishian-blue/5 to-krishian-green/5"></div>
         <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 25% 25%, rgba(11, 110, 79, 0.1) 0%, transparent 50%),
-                          radial-gradient(circle at 75% 75%, rgba(246, 165, 0, 0.1) 0%, transparent 50%)`
+          backgroundImage: `radial-gradient(circle at 25% 25%, rgba(160,199,82,0.1) 0%, transparent 50%),
+                          radial-gradient(circle at 75% 75%, rgba(30,58,138,0.1) 0%, transparent 50%)`
         }}></div>
         
         {/* Floating Quote Icons */}
         <div className="absolute top-20 left-20 text-6xl text-krishian-green/20 animate-bounce">💬</div>
-        <div className="absolute top-40 right-32 text-5xl text-krishian-accent/20 animate-bounce" style={{ animationDelay: '0.5s' }}>⭐</div>
+        <div className="absolute top-40 right-32 text-5xl text-krishian-blue/20 animate-bounce" style={{ animationDelay: '0.5s' }}>⭐</div>
         <div className="absolute bottom-32 left-1/4 text-6xl text-krishian-green/20 animate-bounce" style={{ animationDelay: '1s' }}>💬</div>
-        <div className="absolute bottom-20 right-20 text-5xl text-krishian-accent/20 animate-bounce" style={{ animationDelay: '1.5s' }}>⭐</div>
+        <div className="absolute bottom-20 right-20 text-5xl text-krishian-blue/20 animate-bounce" style={{ animationDelay: '1.5s' }}>⭐</div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header */}
-        <motion.div 
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="inline-flex items-center bg-gradient-to-r from-krishian-green/20 to-krishian-accent/20 px-8 py-4 rounded-full border border-krishian-green/30 mb-8">
-            <div className="w-3 h-3 bg-krishian-green rounded-full mr-3 animate-pulse"></div>
-            <span className="text-krishian-green font-semibold text-sm">What Our Users Say</span>
-          </div>
-          
-          <h2 className="text-6xl font-bold text-krishian-dark mb-6">
-            <span className="bg-gradient-to-r from-krishian-green to-krishian-accent bg-clip-text text-transparent">
-              Real Stories,
-            </span>
-            <br />
-            <span className="text-krishian-dark">Real Impact</span>
-          </h2>
-          
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Hear from farmers and buyers who have transformed their lives and businesses with Krishian. 
-            These are real people with real stories of success and growth.
-          </p>
-        </motion.div>
+        {/* Header removed for a cleaner look */}
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              className="group relative"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+        {/* Testimonials Carousel - professional cards */}
+        <div className="relative mb-20">
+          <div className="overflow-hidden">
+            <div
+              className="flex transition-transform duration-500 ease-out"
+              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
-              <div className={`${testimonial.bgColor} ${testimonial.borderColor} border-2 rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 hover:scale-105 group-hover:border-opacity-50 relative overflow-hidden`}>
-                {/* Background Pattern */}
-                <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
-                  <div className={`w-full h-full bg-gradient-to-br ${testimonial.color} rounded-full`}></div>
+              {Array.from({ length: totalSlides }).map((_, slideIndex) => (
+                <div key={slideIndex} className="min-w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-1">
+                  {testimonials
+                    .slice(slideIndex * perPage, slideIndex * perPage + perPage)
+                    .map((testimonial, index) => (
+                      <motion.div
+                        key={index}
+                        className="group relative"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.4 }}
+                      >
+                        <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-card transition-all duration-300 relative">
+                          <div className="flex items-center justify-between mb-4">
+                            <div className="flex items-center gap-3">
+                              <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-krishian-green to-krishian-blue text-white flex items-center justify-center text-xl">
+                                {testimonial.avatar}
+                              </div>
+                              <div>
+                                <h4 className="font-semibold text-krishian-dark">{testimonial.name}</h4>
+                                <p className="text-gray-600 text-sm">{testimonial.role}</p>
+                              </div>
+                            </div>
+                            <StarRating rating={testimonial.rating} color={`text-krishian-green`} />
+                          </div>
+
+                          <blockquote className="text-gray-700 leading-relaxed mb-4">
+                            "{testimonial.content}"
+                          </blockquote>
+
+                          <div className="text-xs font-semibold text-krishian-dark/70">
+                            {testimonial.impact}
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
                 </div>
+              ))}
+            </div>
+          </div>
 
-                {/* Quote Icon */}
-                <div className="absolute top-6 left-6 text-4xl text-gray-300/20">💬</div>
-
-                {/* Rating */}
-                <div className="flex items-center mb-6 relative z-10">
-                  <StarRating rating={testimonial.rating} color={`text-krishian-accent`} />
-                </div>
-
-                {/* Content */}
-                <div className="relative z-10">
-                  <blockquote className="text-gray-700 leading-relaxed mb-6 text-lg italic">
-                "{testimonial.content}"
-                  </blockquote>
-
-                  {/* Author */}
-                  <div className="flex items-center space-x-4 mb-6">
-                    <div className={`w-16 h-16 bg-gradient-to-r ${testimonial.color} rounded-full flex items-center justify-center text-2xl`}>
-                      {testimonial.avatar}
-                    </div>
-                <div>
-                      <h4 className="font-bold text-gray-800 text-lg">{testimonial.name}</h4>
-                      <p className="text-gray-600">{testimonial.role}</p>
-                    </div>
-                  </div>
-
-                  {/* Impact Badge */}
-                  <div className={`inline-block bg-gradient-to-r ${testimonial.color} text-white px-4 py-2 rounded-full text-sm font-bold group-hover:scale-105 transition-transform duration-300`}>
-                    {testimonial.impact}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+          {/* Slider Controls */}
+          <div className="flex items-center justify-between mt-8">
+            <button
+              aria-label="Previous testimonials"
+              onClick={goPrev}
+              className="rounded-full border-2 border-krishian-green text-krishian-dark px-4 py-2 hover:bg-krishian-green hover:text-white transition-colors"
+            >
+              Prev
+            </button>
+            <div className="flex items-center gap-2">
+              {Array.from({ length: totalSlides }).map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentSlide(i)}
+                  className={`w-2.5 h-2.5 rounded-full ${i === currentSlide ? 'bg-krishian-green' : 'bg-gray-300'}`}
+                  aria-label={`Go to testimonials slide ${i + 1}`}
+                />
+              ))}
+            </div>
+            <button
+              aria-label="Next testimonials"
+              onClick={goNext}
+              className="rounded-full border-2 border-krishian-green text-krishian-dark px-4 py-2 hover:bg-krishian-green hover:text-white transition-colors"
+            >
+              Next
+            </button>
+          </div>
         </div>
 
         {/* Stats Section */}
@@ -215,7 +239,7 @@ const TestimonialsSection = () => {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="bg-gradient-to-r from-krishian-green to-krishian-accent rounded-3xl p-12 text-white relative overflow-hidden">
+          <div className="bg-gradient-to-r from-krishian-green to-krishian-blue rounded-2xl p-12 text-krishian-white relative overflow-hidden shadow-xl">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-20">
               <div className="w-full h-full" style={{
@@ -225,22 +249,22 @@ const TestimonialsSection = () => {
             </div>
             
             <div className="relative z-10">
-              <h3 className="text-4xl font-bold text-white mb-8">
+              <h3 className="text-4xl font-bold text-krishian-white mb-8">
                 Trusted by Thousands
               </h3>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div className="text-center">
-                  <div className="text-6xl font-bold text-white mb-2">98%</div>
-                  <div className="text-xl text-white/80">Customer Satisfaction</div>
+                  <div className="text-6xl font-bold text-krishian-white mb-2">98%</div>
+                  <div className="text-xl text-krishian-white/80">Customer Satisfaction</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-6xl font-bold text-white mb-2">25K+</div>
-                  <div className="text-xl text-white/80">Happy Farmers</div>
+                  <div className="text-6xl font-bold text-krishian-white mb-2">25K+</div>
+                  <div className="text-xl text-krishian-white/80">Happy Farmers</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-6xl font-bold text-white mb-2">5K+</div>
-                  <div className="text-xl text-white/80">Active Buyers</div>
+                  <div className="text-6xl font-bold text-krishian-white mb-2">5K+</div>
+                  <div className="text-xl text-krishian-white/80">Active Buyers</div>
                 </div>
           </div>
           </div>
@@ -252,3 +276,4 @@ const TestimonialsSection = () => {
 };
 
 export default TestimonialsSection;
+

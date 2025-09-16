@@ -230,15 +230,15 @@ const TraditionalSystemSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-20 h-20 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl font-bold text-white">{totalWastage}%</span>
+                <span className="text-2xl font-bold text-white">{totalWastage}%</span>
               </div>
-              <h4 className="text-xl font-bold text-red-700 mb-2">Total Wastage</h4>
+              <h4 className=" font-bold text-red-700 mb-2">Total Wastage</h4>
               <p className="text-gray-600 text-sm">Combined wastage across all steps</p>
             </div>
 
             <div className="text-center">
               <div className="w-20 h-20 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl font-bold text-white">{totalProfit}%</span>
+                <span className="text-2xl font-bold text-white">{totalProfit}%</span>
               </div>
               <h4 className="text-xl font-bold text-orange-700 mb-2">Total Profit</h4>
               <p className="text-gray-600 text-sm">Combined profit for middlemen</p>
@@ -246,7 +246,7 @@ const TraditionalSystemSection = () => {
 
             <div className="text-center">
               <div className="w-20 h-20 bg-gradient-to-r from-krishian-green to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl font-bold text-white">{totalTime}</span>
+                <span className="text-2xl font-bold text-white">{totalTime}</span>
               </div>
               <h4 className="text-xl font-bold text-green-700 mb-2">Total Days</h4>
               <p className="text-gray-600 text-sm">Time from farm to consumer</p>
